@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <ul className="nav">
-      <li className="nav-item">
+    <ul className="nav bg-light p-3 fs-4">
+      <li className="nav-item  ">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "a nav-link active" : "a nav-link"
+            isActive
+              ? "a nav-link active text-secondary fw-bold"
+              : "a nav-link text-secondary"
           }
           to="/home"
         >
@@ -18,7 +20,9 @@ const Header = () => {
       <li className="nav-item">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "a nav-link active" : "a nav-link"
+            isActive
+              ? "a nav-link active text-secondary fw-bold"
+              : "a nav-link text-secondary"
           }
           to="/shopping_list"
         >
@@ -28,7 +32,9 @@ const Header = () => {
       <li className="nav-item">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "a nav-link active" : "a nav-link"
+            isActive
+              ? "a nav-link active text-secondary fw-bold"
+              : "a nav-link text-secondary"
           }
           to="/recipes"
         >

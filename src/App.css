@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+.wrapper {
+  min-width: 80vh;
+  min-height: 100vh;
+  background: #b0d8c3;
+}
+.form-and-todo-box .input-and-button input {
+  flex-grow: 1;
+  outline: none;
+}
+.icons {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.add-item {
+  background: rgb(124, 202, 124);
+}
+.add-item:hover {
+  background: rgb(78, 177, 78);
+}
+.fa-edit {
+  background: rgb(70, 183, 227);
+}
+.fa-edit:hover {
+  background: rgb(23, 161, 216);
+}
+.fa-trash,
+.delete-all {
+  background: #f37676;
+}
+.fa-trash:hover,
+.delete-all:hover {
+  background: #ee6767;
+}
