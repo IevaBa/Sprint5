@@ -10,11 +10,39 @@ export const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // creating a unique ID for every todo
+    const date = new Date();
+    const time = date.getTime();
+
     let todoObject = {
+      ID: time,
       TodoValue: todoValue,
+      completed: false,
     };
     setTodos([...todos, todoObject]);
     setTodoValue("");
+  };
+  // HANDLE DELETE ITEM
+  const handleDelete = (id) => {
+    const filtered = todos.filter((todo) => {
+      return todo.ID !== id;
+    });
+    setTodos(filtered);
+  };
+  // HANDLE CHECKBOX
+  const handleCheckbox = (id) => {
+    let todoArray = [];
+    todos.forEach((todo) => {
+      if (todo.ID === id) {
+        if (todo.completed === false) {
+          todo.completed = true;
+        } else if (todo.completed === true) {
+          todo.completed = false;
+        }
+      }
+      todoArray.push(todo);
+      setTodos(todoArray);
+    });
   };
   return (
     <>
@@ -48,21 +76,39 @@ export const Form = () => {
               key={index}
             >
               <div>
-                <input className="checkbox" type="checkbox" />
-                <span className="mx-3 fs-5">{individualTodo.TodoValue}</span>
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  checked={individualTodo.completed}
+                  onChange={() => handleCheckbox(individualTodo.ID)}
+                />
+                <span
+                  className="mx-3 fs-5"
+                  style={
+                    individualTodo.completed === true
+                      ? { textDecoration: "line-through" }
+                      : { textDecoration: "none" }
+                  }
+                >
+                  {individualTodo.TodoValue}
+                </span>
               </div>
               <div className="edit-and-delete d-flex">
                 <div className="mx-2" onClick={() => ""}>
                   <FaEdit className="icons fa-edit text-white p-2 rounded" />
                 </div>
-                <div onClick={() => ""}>
-                  <FaTrashAlt className="icons fa-trash text-white p-2 rounded" />
-                </div>
+                <FaTrashAlt
+                  className="icons fa-trash text-white p-2 rounded"
+                  onClick={() => handleDelete(individualTodo.ID)}
+                />
               </div>
             </div>
           ))}
           <div className="d-flex justify-content-end">
-            <button className="delete-all p-2 fs-4 rounded mt-2 text-white fw-bolder border-0">
+            <button
+              className="delete-all p-2 fs-4 rounded mt-2 text-white fw-bolder border-0"
+              onClick={() => setTodos([])}
+            >
               Delete All
             </button>
           </div>
