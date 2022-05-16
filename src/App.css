@@ -40,6 +40,10 @@
 .fa-edit:hover {
   background: rgb(23, 161, 216);
 }
+
+.update-item {
+  background-color: #fc9c00d7;
+}
 .fa-trash,
 .delete-all {
   background: #f37676;

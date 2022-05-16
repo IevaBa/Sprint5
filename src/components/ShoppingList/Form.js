@@ -58,30 +58,83 @@ export const Form = () => {
       setTodos(todoArray);
     });
   };
+  //EDIT FORM
+  const [editForm, setEditForm] = useState(false);
+  const [id, setId] = useState();
+
+  const handleEdit = (todo, index) => {
+    setEditForm(true);
+    setTodoValue(todo.TodoValue);
+    setId(index);
+  };
+
+  // HANDLE EDIT ITEM
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    // copying todos state in items variable
+    let items = [...todos];
+    // storing the element at a particular index in item variable
+    let item = items[id];
+    // manipulating the item (object) keys
+    item.TodoValue = todoValue;
+    item.completed = false;
+    // after manipulating item, saving it at the same index in items
+    items[id] = item;
+    // updating todos with items
+    setTodos(items);
+    setEditForm(false);
+    setTodoValue("");
+  };
   return (
     <>
-      <div className="form">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <div className="input-and-button d-flex bg-white py-3">
-            <input
-              className="border p-2 fs-4 rounded-start px-3"
-              type="text"
-              placeholder="Add an item "
-              required
-              onChange={(e) => setTodoValue(e.target.value)}
-              value={todoValue}
-            />
-            <div className="d-flex  ">
-              <button
-                className="add-item px-2 fs-4 text-white border-0 fw-bolder rounded-end"
-                type="submit"
-              >
-                Add item
-              </button>
+      {editForm === false && (
+        <div className="form">
+          <form autoComplete="off" onSubmit={handleSubmit}>
+            <div className="input-and-button d-flex bg-white py-3">
+              <input
+                className="border p-2 fs-4 rounded-start px-3"
+                type="text"
+                placeholder="Add an item "
+                required
+                onChange={(e) => setTodoValue(e.target.value)}
+                value={todoValue}
+              />
+              <div className="d-flex  ">
+                <button
+                  className="add-item px-2 fs-4 text-white border-0 fw-bolder rounded-end"
+                  type="submit"
+                >
+                  Add item
+                </button>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
+      )}
+      {editForm === true && (
+        <div className="form">
+          <form autoComplete="off" onSubmit={handleEditSubmit}>
+            <div className="input-and-button d-flex bg-white py-3">
+              <input
+                className="border p-2 fs-4 rounded-start px-3"
+                type="text"
+                placeholder="Edit your Item"
+                required
+                onChange={(e) => setTodoValue(e.target.value)}
+                value={todoValue}
+              />
+              <div className="d-flex">
+                <button
+                  className="update-item px-2 fs-4 text-white border-0 fw-bolder rounded-end"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      )}
       {todos.length > 0 && (
         <>
           {todos.map((individualTodo, index) => (
@@ -108,7 +161,10 @@ export const Form = () => {
                 </span>
               </div>
               <div className="edit-and-delete d-flex">
-                <div className="mx-2" onClick={() => ""}>
+                <div
+                  className="mx-2"
+                  onClick={() => handleEdit(individualTodo, index)}
+                >
                   <FaEdit className="icons fa-edit text-white p-2 rounded" />
                 </div>
                 <FaTrashAlt
