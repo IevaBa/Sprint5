@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 
+// GETTING ITEMS FROM LS
+const getTodosFromLS = () => {
+  const data = localStorage.getItem("Shopping list");
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
+
 export const Form = () => {
   const [todoValue, setTodoValue] = useState("");
-  const [todos, setTodos] = useState("");
+  const [todos, setTodos] = useState(getTodosFromLS());
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +32,10 @@ export const Form = () => {
     setTodos([...todos, todoObject]);
     setTodoValue("");
   };
+  // SAVING ITEMS TO LS
+  useEffect(() => {
+    localStorage.setItem("Shopping list", JSON.stringify(todos));
+  }, [todos]);
   // HANDLE DELETE ITEM
   const handleDelete = (id) => {
     const filtered = todos.filter((todo) => {
@@ -73,7 +87,7 @@ export const Form = () => {
           {todos.map((individualTodo, index) => (
             <div
               className="todo d-flex justify-content-between align-items-center pb-2 my-2 border-bottom"
-              key={index}
+              key={individualTodo.ID}
             >
               <div>
                 <input
