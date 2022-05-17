@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Sprint5/static/css/main.f523e84c.css",
+    "main.js": "/Sprint5/static/js/main.cd461c4e.js",
+    "static/media/home-cover.png": "/Sprint5/static/media/home-cover.0c38784001395e1d1e71.png",
+    "static/media/1.jpeg": "/Sprint5/static/media/1.19e05b97f8c0445f3074.jpeg",
+    "static/media/6.jpeg": "/Sprint5/static/media/6.154c6e969c4fa95bac93.jpeg",
+    "static/media/3.jpeg": "/Sprint5/static/media/3.b9b9cd33f39c216fe9f1.jpeg",
+    "static/media/5.jpeg": "/Sprint5/static/media/5.8751584eb5b5d0e44137.jpeg",
+    "static/media/2.jpeg": "/Sprint5/static/media/2.31d70adac6f080f278e3.jpeg",
+    "static/media/error-page.jpeg": "/Sprint5/static/media/error-page.6ea98444d9b2b80d15fa.jpeg",
+    "static/media/4.jpeg": "/Sprint5/static/media/4.48d8cfe8f8c6fc1072d8.jpeg",
+    "index.html": "/Sprint5/index.html",
+    "main.f523e84c.css.map": "/Sprint5/static/css/main.f523e84c.css.map",
+    "main.cd461c4e.js.map": "/Sprint5/static/js/main.cd461c4e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f523e84c.css",
+    "static/js/main.cd461c4e.js"
+  ]
+}
