@@ -1,5 +1,4 @@
 import React from "react";
-import "./Recipes.css";
 import img1 from "../../img/1.jpeg";
 import img2 from "../../img/2.jpeg";
 import img3 from "../../img/3.jpeg";
@@ -33,7 +32,7 @@ const Recipes = () => (
             chopped kale, crunchy pepitas, walnuts, pomegranate arils, dried
             cranberries and chickpeas roasted with oil, turmeric, cumin, and
             cinnamon, this salad is one of the BEST for fall. Top it off with a
-            sweet or savory vinaigrette and enjoy!
+            sweet or savory vinaigrette and enjoy your day!
           </p>
           <div className="btn bg-secondary text-light fw-bold">More</div>
         </div>

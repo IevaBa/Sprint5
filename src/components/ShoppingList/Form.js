@@ -90,18 +90,18 @@ export const Form = () => {
       {editForm === false && (
         <div className="form">
           <form autoComplete="off" onSubmit={handleSubmit}>
-            <div className="input-and-button d-flex bg-white py-3">
+            <div className="input-and-button bg-white py-3 d-flex justify-content-center">
               <input
-                className="border p-2 fs-4 rounded-start px-3"
+                className="add-item-input border p-2 fs-4 rounded-start px-3"
                 type="text"
                 placeholder="Add an item "
                 required
                 onChange={(e) => setTodoValue(e.target.value)}
                 value={todoValue}
               />
-              <div className="d-flex  ">
+              <div className="d-flex">
                 <button
-                  className="add-item px-2 fs-4 text-white border-0 fw-bolder rounded-end"
+                  className="add-item text-white border-0 fw-bolder rounded-end"
                   type="submit"
                 >
                   Add item
@@ -116,7 +116,7 @@ export const Form = () => {
           <form autoComplete="off" onSubmit={handleEditSubmit}>
             <div className="input-and-button d-flex bg-white py-3">
               <input
-                className="border p-2 fs-4 rounded-start px-3"
+                className="edit-item-input border p-2 fs-4 rounded-start px-3"
                 type="text"
                 placeholder="Edit your Item"
                 required
@@ -125,7 +125,7 @@ export const Form = () => {
               />
               <div className="d-flex">
                 <button
-                  className="update-item px-2 fs-4 text-white border-0 fw-bolder rounded-end"
+                  className="update-item text-white border-0 fw-bolder rounded-end"
                   type="submit"
                 >
                   Update

@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
 }
 .home {
   background-image: url(./img/home-cover.png);
@@ -16,13 +14,15 @@
   background-color: rgb(138, 135, 135);
 }
 .wrapper {
-  min-width: 100vh;
   min-height: 100vh;
   background: #b0d8c3;
 }
 .form-and-todo-box .input-and-button input {
   flex-grow: 1;
   outline: none;
+}
+.form-and-todo-box {
+  min-width: 70vw;
 }
 .icons {
   font-size: 2rem;
@@ -40,7 +40,6 @@
 .fa-edit:hover {
   background: rgb(23, 161, 216);
 }
-
 .update-item {
   background-color: #fc9c00d7;
 }
@@ -51,4 +50,29 @@
 .fa-trash:hover,
 .delete-all:hover {
   background: #ee6767;
+}
+.add-item,
+.update-item {
+  font-size: 1.4rem;
+  padding: 0.4rem;
+}
+@media only screen and (max-width: 678px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .add-item-input,
+  .edit-item-input {
+    min-width: 40vw;
+    font-size: 1.2rem;
+  }
+  .add-item,
+  .update-item {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+  .form-and-todo-box {
+    min-width: 80vw;
+  }
 }

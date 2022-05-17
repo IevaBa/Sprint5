@@ -1,11 +1,10 @@
 import React from "react";
-import "./Header.css";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <ul className="nav bg-light p-3 fs-4">
-      <li className="nav-item  ">
+    <ul className="header nav p-3 fs-4">
+      <li className="nav-item">
         <NavLink
           className={({ isActive }) =>
             isActive

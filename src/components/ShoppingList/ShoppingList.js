@@ -1,5 +1,4 @@
 import React from "react";
-import "./ShoppingList.css";
 import { Form } from "./Form";
 
 const ShoppingList = () => {
